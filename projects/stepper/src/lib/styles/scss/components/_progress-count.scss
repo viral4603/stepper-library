@@ -1,0 +1,161 @@
+.step-counts {
+    position: relative;
+    z-index: 11;
+
+    &.vertical-orientation {
+
+        .nav-items {
+            height: calc((100% - 40px)/5);
+            width: initial;
+
+            &:last-child {
+                height: initial;
+            }
+        }
+
+        .step-title {
+            // writing-mode: vertical-rl;
+            // text-orientation: mixed;
+            margin-top: 10px;
+            // transform: scale(-1);
+        }
+
+        .step-progress-bar {
+            left: 17px;
+            top: 0;
+            width: 5px !important;
+            height: 100%;
+
+            .progress-bar-active {
+                width: 5px !important;
+            }
+
+        }
+    }
+}
+
+//count-widget css
+.count-button {
+    height: 40px;
+    width: 40px;
+    position: relative;
+    z-index: 999;
+    // background-color: $light;
+    background-color: var(--background);
+    font-size: 16px;
+    font-weight: bold;
+    color: $secondary;
+    color: var(--default);
+    border: none;
+    flex-shrink: 0;
+}
+
+
+//steps state css 
+.progress-item {
+    position: relative;
+
+    &:after {
+        position: absolute;
+        top: 50%;
+        content: '';
+        width: 100%;
+        height: 4px;
+        background-color: var(--background);
+        z-index: 9;
+    }
+
+    &::before {
+        position: absolute;
+        top: 50%;
+        content: '';
+        width: 0%;
+        height: 4px;
+        background-color: var(--completedBg);
+        transition: all 200ms ease-out;
+        z-index: 99;
+
+    }
+
+    ;
+
+    &:last-child {
+        width: initial !important;
+        justify-content: flex-end;
+
+        &::after {
+            width: 0;
+        }
+    }
+
+    &.active {
+
+        .count-button,
+        .step-details {
+            // color: $success;
+            color: var(--active);
+        }
+
+        .count-button {
+            background: var(--activeBg);
+            // background: $light;
+        }
+    }
+
+    &.completed {
+        .count-button {
+            background-color: var(--completedBg);
+            color: var(--completed);
+        }
+
+        &::before {
+            width: 100%;
+        }
+    }
+
+
+}
+
+
+//progress bar css
+.step-progress-bar {
+    background: var(--background);
+    // background: $light;
+    position: absolute;
+    top: 50%;
+    z-index: -1;
+
+    .progress-bar-active {
+        transition-timing-function: ease-out;
+        transition: all 0.4s;
+        height: 5px;
+        width: 0%;
+        background-color: var(--completedBg);
+        // background-color: $secondary;
+    }
+
+}
+
+//responisive css for steps widget
+@media screen and (max-width: 576px) {
+    .count-button {
+        height: 30px;
+        width: 30px;
+    }
+
+    .nav-items {
+        width: calc((100% - 30px)/5);
+    }
+
+    .counts.vertical-orientation {
+
+        .nav-items {
+            height: calc((100% - 30px)/5);
+        }
+
+        .step-progress-bar {
+            left: 13px;
+        }
+    }
+
+}

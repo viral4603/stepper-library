@@ -1,0 +1,110 @@
+    <!-- start-basic-details-form -->
+    <form class="flex-grow-1 d-flex flex-column" [formGroup]="basicDetails">
+        <div class="form-details flex-grow-1">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <label for="firstName" class="mb-2 ms-1 cursor-pointer fw-semibold">First Name<span
+                            class="text-danger">*</span></label>
+                    <div class="input-group mb-3 flex-column">
+                        <input type="text" id="firstName" class="form-control w-100" placeholder="First Name"
+                            aria-label="First Name" formControlName="firstName">
+                        <!-- start-first-name-error -->
+                        <ng-container
+                            *ngIf="(formContorls['firstName'].touched && formContorls['firstName'].errors) || (!isValid && formContorls['firstName'].errors)">
+                            <h6 *ngIf="formContorls['firstName']['errors']['required']" class="text-danger mt-2">
+                                *First name is required field
+                            </h6>
+                        </ng-container>
+                        <!-- end-first-name-error -->
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="lastName" class="mb-2 ms-1 cursor-pointer fw-semibold">Last Name<span
+                            class="text-danger">*</span></label>
+                    <div class="input-group mb-3 flex-column">
+                        <input type="text" id="lastName" class="form-control w-100" placeholder="Last Name"
+                            aria-label="Last Name" formControlName="lastName">
+                        <!-- start-last-name-error -->
+                        <ng-container
+                            *ngIf="(formContorls['lastName'].touched && formContorls['lastName'].errors) || (!isValid && formContorls['lastName'].errors)">
+                            <h6 *ngIf="formContorls['lastName']['errors']['required']" class="text-danger mt-2">
+                                *Last name is required field
+                            </h6>
+                        </ng-container>
+                        <!-- end-last-name-error -->
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="email" class="mb-2 ms-1 cursor-pointer fw-semibold">Email<span
+                            class="text-danger">*</span></label>
+                    <div class="input-group mb-3 flex-column">
+                        <input type="email" id="email" class="form-control w-100" placeholder="Email" aria-label="email"
+                            formControlName="email">
+                        <!-- start-email-error -->
+                        <ng-container
+                            *ngIf="(formContorls['email'].touched && formContorls['email'].errors) || (!isValid && formContorls['email'].errors)">
+                            <h6 *ngIf="formContorls['email']['errors']['required']" class="text-danger mt-2">
+                                *Email is required field
+                            </h6>
+                            <h6 *ngIf="formContorls['email']['errors']['email']" class="text-danger mt-2">
+                                *PLease provide valid email
+                            </h6>
+                        </ng-container>
+                        <!-- end-email-error -->
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="phone" class="mb-2 ms-1 cursor-pointer fw-semibold">Phone Number<span
+                            class="text-danger">*</span></label>
+                    <div class="input-group mb-3 flex-column">
+                        <input type="text" id="phone" class="form-control w-100" placeholder="Phone Number"
+                            aria-label="First Name" formControlName="phoneNumber" maxLength="10">
+                        <!-- start-phone-number-error -->
+                        <ng-container
+                            *ngIf="(formContorls['phoneNumber'].touched && formContorls['phoneNumber'].errors) || (!isValid && formContorls['phoneNumber'].errors)">
+                            <h6 *ngIf="formContorls['phoneNumber']['errors']['required']" class="text-danger mt-2">
+                                *Phone Number is required field
+                            </h6>
+                            <h6 *ngIf="formContorls['phoneNumber']['errors']['minlength']" class="text-danger mt-2">
+                                *Phone Number should be 10 digits
+                            </h6>
+                        </ng-container>
+                        <!-- end-phone-number-error -->
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="department" class="mb-2 ms-1 cursor-pointer fw-semibold">Department<span
+                            class="text-danger">*</span></label>
+                    <div class="input-group mb-3 flex-column">
+                        <input type="text" id="department" class="form-control w-100" placeholder="Department"
+                            aria-label="First Name" formControlName="department">
+                        <!-- start-phone-number-error -->
+                        <ng-container
+                            *ngIf="(formContorls['department'].touched && formContorls['department'].errors) || (!isValid && formContorls['department'].errors)">
+                            <h6 *ngIf="formContorls['department']['errors']['required']" class="text-danger mt-2">
+                                *Department is required field
+                            </h6>
+                        </ng-container>
+                        <!-- end-phone-number-error -->
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="position" class="mb-2 ms-1 cursor-pointer fw-semibold">Position<span
+                            class="text-danger">*</span></label>
+                    <div class="input-group mb-3 flex-column">
+                        <input type="text" id="position" class="form-control w-100" placeholder="Position"
+                            aria-label="First Name" formControlName="position">
+                        <!-- start-position-error -->
+                        <ng-container
+                            *ngIf="(formContorls['position'].touched && formContorls['position'].errors) || (!isValid && formContorls['position'].errors)">
+                            <h6 *ngIf="formContorls['position']['errors']['required']" class="text-danger mt-2">
+                                *Position is required field
+                            </h6>
+                        </ng-container>
+                        <!-- end-position-error -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- end-basic-details-form -->

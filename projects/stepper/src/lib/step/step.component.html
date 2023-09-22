@@ -1,0 +1,10 @@
+<!-- step-start -->
+<div class="main-form d-flex flex-column justify-content-between h-100 pt-3" *ngIf="isActive">
+    <!-- form-heading -->
+    <div class="form-heading mb-2">
+        <ng-content select="header"></ng-content>
+    </div>
+    <!-- main-form-render -->
+    <ng-content></ng-content>
+</div>
+<!-- step-end -->

@@ -1,0 +1,38 @@
+<div class="d-flex flex-column h-100 px-3">
+    <!-- progress-bar-start -->
+    <div class="step-counts py-3">
+        <!-- step-widget-start -->
+        <ul class="count-list mt-2 nav d-flex">
+            <ng-container *ngFor="let step of steps;let i = index">
+                <li class="nav-items progress-item d-flex"
+                [ngClass]="{'active': i === currentStep , 'completed' :  currentStep > i , 'flex-grow-1' : i !== steps.length - 1}">
+                    <button class="count-button d-flex align-items-center justify-content-center rounded-circle"
+                    (click)="navigateToStep(i)" [disabled]="!isCurrentFormValid"><span
+                    [class]="[i === currentStep && 'icon-user-active', currentStep > i ? 'icon-active' : step.icon]">{{i+1}}</span></button>
+                    <div class="step-details ps-2">
+                        <h6 class="mb-0 step-title ">{{step.countTitle}}</h6>
+                    </div>
+                </li>
+            </ng-container>
+        </ul>
+        <!-- step-widget-end -->
+    </div>
+    <!-- progress-bar-end -->
+    <div class="form-wrapper d-flex flex-column w-100 flex-grow-1">
+        <!-- start-form-content -->
+        <ng-content></ng-content>
+        <!-- end-form-content -->
+
+        <!-- start:submit-button -->
+        <div class="stepper-navigation form-footer d-flex  py-3 flex-shrink-0"
+            [ngClass]="[currentStep === 0 ? 'justify-content-end' : 'justify-content-between']">
+            <button class="btn btn-primary" (click)="prev()" *ngIf="currentStep !== 0"
+                [disabled]="!isCurrentFormValid">Previous</button>
+            <button class="btn btn-secondary" (click)="next()" *ngIf="currentStep !== steps.length - 1"
+                [disabled]="!isCurrentFormValid">Next</button>
+            <button class="btn btn-danger" (click)="submitForm()" *ngIf="currentStep === steps.length - 1"
+                [disabled]="!isCurrentFormValid">Submit</button>
+        </div>
+        <!-- end:submit-button -->
+    </div>
+</div>

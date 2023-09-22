@@ -1,0 +1,56 @@
+<!-- start-basic-details-form -->
+<form class="flex-grow-1 d-flex flex-column" [formGroup]="addressForm">
+    <div class="form-details flex-grow-1">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <label for="address" class="mb-1 cursor-pointer fw-semibold">Address<span
+                        class="text-danger">*</span></label>
+                <div class="input-group mb-3 flex-column">
+                    <input type="text" id="address" class="form-control w-100" placeholder="Address"
+                        aria-label="address" formControlName="address">
+                    <!-- start-address-error -->
+                    <ng-container
+                        *ngIf="(formContorls['address'].touched && formContorls['address'].errors) || (!isValid && formContorls['address'].errors)">
+                        <h6 *ngIf="formContorls['address']['errors']['required']" class="text-danger mt-2">
+                            *Address is required field
+                        </h6>
+                    </ng-container>
+                    <!-- end-address-error -->
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <label for="streetAddress" class="mb-1 cursor-pointer fw-semibold">Street Address<span
+                        class="text-danger">*</span></label>
+                <div class="input-group mb-3 flex-column">
+                    <input type="text" id="streetAddress" class="form-control w-100" placeholder="Street Address"
+                        aria-label="Street Address" formControlName="streetAddress">
+                    <!-- start-street-address -->
+                    <ng-container
+                        *ngIf="(formContorls['streetAddress'].touched && formContorls['streetAddress'].errors) || (!isValid && formContorls['streetAddress'].errors)">
+                        <h6 *ngIf="formContorls['streetAddress']['errors']['required']" class="text-danger mt-2">
+                            *Street Address is required field
+                        </h6>
+                    </ng-container>
+                    <!-- end-street-address -->
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <label for="pinCode" class="mb-1 cursor-pointer fw-semibold">Pin Code<span
+                        class="text-danger">*</span></label>
+                <div class="input-group mb-3 flex-column">
+                    <input type="text" id="pinCode" class="form-control w-100" placeholder="Pin Code"
+                        aria-label="Pin Code" formControlName="pinCode">
+                    <!-- start-pincode-error -->
+                    <ng-container
+                        *ngIf="(formContorls['pinCode'].touched && formContorls['pinCode'].errors) || (!isValid && formContorls['pinCode'].errors)">
+                        <h6 *ngIf="formContorls['pinCode']['errors']['required']" class="text-danger mt-2">
+                            *Pin Code is required field
+                        </h6>
+                    </ng-container>
+                    <!-- end-pincode-error -->
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- end-basic-details-form -->

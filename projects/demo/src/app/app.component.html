@@ -1,0 +1,20 @@
+<ui-stepper [customStyle]="countWidgetStyles">
+  <ui-step countTitle="Basic">
+    <header>
+      <h4>1.Basic Form</h4>
+    </header>
+    <app-basic-details #formSelector></app-basic-details>
+  </ui-step>
+  <ui-step countTitle="Basic">
+    <header>
+      <h4>1.Address Form</h4>
+    </header>
+    <app-address-details #formSelector></app-address-details>
+  </ui-step>
+  <ui-step countTitle="Basic">
+    <header>
+      <h4>3.Additional Information Form</h4>
+    </header>
+    <app-basic-details #formSelector></app-basic-details>
+  </ui-step>
+</ui-stepper>
