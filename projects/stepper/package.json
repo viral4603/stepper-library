@@ -1,6 +1,16 @@
 {
-  "name": "stepper",
-  "version": "0.0.1",
+  "name": "ngvs-stepper",
+  "version": "1.0.0",
+  "description": "This a stepper form libray publish by viral",
+  "keywords": ["angular","stepper","progress"],
+  "author": {
+    "name": "viral patel",
+    "email": "pviral4603@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/viral4603/stepper-library/tree/develop/projects/stepper"
+  },
   "peerDependencies": {
     "@angular/common": "^16.2.0",
     "@angular/core": "^16.2.0",
