@@ -17,7 +17,7 @@ export class AppComponent {
       completed: '#ffffff',
       completedBg: '#008DFF'
     },
-    shape: 'square',
+    shape: 'circle',
     orientation: 'horizontal'
   }
 }

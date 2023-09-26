@@ -10,6 +10,8 @@ export interface StepperForm {
      */
     getFormData(): FormGroup;
 }
+export type Shape = 'circle' | 'square'
+export type Orientation = 'vertical' | 'horizontal'
 
 export interface CountWidgetStyles {
     colors: {
@@ -21,6 +23,6 @@ export interface CountWidgetStyles {
         completed: string;
         completedBg: string;
     };
-    shape?: string;
-    orientation: string;
+    shape?: Shape;
+    orientation?: Orientation;
 }

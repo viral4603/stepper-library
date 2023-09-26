@@ -18,8 +18,12 @@ export class StepperComponent implements AfterContentInit {
       for (let key in styles.colors) {
         this.rootElement.style.setProperty(`--${key}`, styles.colors[key]);
       }
+      this.widgetStyle = styles
     }
   }
+
+  /** get widget styles */
+
 
   /** get steps component */
   @ContentChildren(StepComponent) steps!: QueryList<StepComponent>;
@@ -31,19 +35,13 @@ export class StepperComponent implements AfterContentInit {
   public currentForm!: StepComponent;
   /** root elemnet refernce for setting css varible */
   public rootElement: HTMLElement;
-
-  /** get progress bar width */
-  get progressbarStyle() {
-    return {
-      width: `calc(${this.currentStep * (100 / (this.steps.length - 1))}% - ${(this.currentStep * 40)}px)`
-    }
-  }
+  /** custome style for widget */
+  public widgetStyle!: CountWidgetStyles;
 
   /** get current form validation state */
   get isCurrentFormValid(): boolean {
     return this.currentForm.childComponentRef.getFormData().valid
   }
-
 
   constructor() {
     this.currentStep = 0;

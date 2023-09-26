@@ -1,14 +1,16 @@
-<div class="d-flex flex-column h-100 px-3">
+<div class="d-flex h-100 px-3"
+    [ngClass]="[widgetStyle.orientation, widgetStyle.orientation === 'vertical' ? 'd-flex' : 'flex-column' ]">
     <!-- progress-bar-start -->
     <div class="step-counts py-3">
         <!-- step-widget-start -->
-        <ul class="count-list mt-2 nav d-flex">
+        <ul class="count-list mt-2 nav d-flex"
+            [ngClass]="[widgetStyle.orientation !== 'vertical' ? 'd-flex' : 'flex-column h-100']">
             <ng-container *ngFor="let step of steps;let i = index">
                 <li class="nav-items progress-item d-flex"
-                [ngClass]="{'active': i === currentStep , 'completed' :  currentStep > i , 'flex-grow-1' : i !== steps.length - 1}">
-                    <button class="count-button d-flex align-items-center justify-content-center rounded-circle"
-                    (click)="navigateToStep(i)" [disabled]="!isCurrentFormValid"><span
-                    [class]="[i === currentStep && 'icon-user-active', currentStep > i ? 'icon-active' : step.icon]">{{i+1}}</span></button>
+                    [ngClass]="{'active': i === currentStep , 'completed' :  currentStep > i , 'flex-grow-1' : i !== steps.length - 1}">
+                    <button class="count-button d-flex align-items-center justify-content-center "
+                        [ngClass]="[widgetStyle.shape === 'square' ? 'rounded' : 'rounded-circle']"
+                        (click)="navigateToStep(i)" [disabled]="!isCurrentFormValid"><span>{{i+1}}</span></button>
                     <div class="step-details ps-2">
                         <h6 class="mb-0 step-title ">{{step.countTitle}}</h6>
                     </div>
@@ -18,7 +20,7 @@
         <!-- step-widget-end -->
     </div>
     <!-- progress-bar-end -->
-    <div class="form-wrapper d-flex flex-column w-100 flex-grow-1">
+    <div class="form-wrapper d-flex flex-column w-100 flex-grow-1" [ngClass]="[widgetStyle.orientation !== 'vertical' ? 'd-flex' : 'py-3 ps-5']">
         <!-- start-form-content -->
         <ng-content></ng-content>
         <!-- end-form-content -->
