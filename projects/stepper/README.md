@@ -12,30 +12,30 @@ This Provide a steps with next previous and submit functionality.
  ```javascript
 - import StepperModule from stepper.
 ```
-- use <ui-stepper> component as wrapper of steps
-### coponent.html
+- use `<ui-stepper>` component as wrapper of steps
+### component.html
 ```javascript
 	<ui-stepper [customStyle]="myStyle">
 	</ui-stepper>
 ```
 ### component.ts
 ```javascript
-	import { CountWidgetStyles } from 'stepper';
-	export class {
-		public myStyle:CountWidgetStyles = {
-			colors: {
-					default:  '#008dff',	
-					background:  '#e9ecef',	
-					active:  '#3bcb44',
-					activeBg:  '#e9ecef',
-					completed:  '#ffffff',
-					completedBg:  '#008DFF'
-					},
-			shape:  'circle',
-			orientation:  'horizontal'
-			}
-		}
-	}
+import { CountWidgetStyles } from 'stepper';
+export class {
+    public myStyle:CountWidgetStyles = {
+        colors: {
+                default:  '#008dff',	
+                background:  '#e9ecef',	
+                active:  '#3bcb44',
+                activeBg:  '#e9ecef',
+                completed:  '#ffffff',
+                completedBg:  '#008DFF'
+                },
+        shape:  'circle',
+        orientation:  'horizontal'
+        }
+    }
+}
 ```
 
 | Name | Type | Description |
@@ -49,14 +49,14 @@ This Provide a steps with next previous and submit functionality.
 | shape | Shape : circle ,square | shape of step |
 | orientation | Orientation : horizontal , vertical | orientation |
 
-- use <ui-step> selector for  your content as wrapper.
+- use `<ui-step>` selector for  your content as wrapper.
 ```javascript
-	<ui-stepper [customStyle]="myStyle">
-		<ui-step countTitle="Basic Details">
-			<header> <h3>Write your title e.g.Basic Details </h3></header>
-			<app-your-form-selecter #formSelector></app-your-form-selecter>
-		</ui-step>
-	</ui-stpper>
+<ui-stepper [customStyle]="myStyle">
+    <ui-step countTitle="Basic Details">
+        <header> <h3>Write your title e.g.Basic Details </h3></header>
+        <app-your-form-selecter #formSelector></app-your-form-selecter>
+    </ui-step>
+</ui-stpper>
 ```
 
 ### Note - Please use #formSelector on form slector component
@@ -64,14 +64,14 @@ This Provide a steps with next previous and submit functionality.
 
 ### app-your-form.ts
 ```javascript
-	import { StepperForm } from 'stepper'
-	export class AppYourForm implements StepperForm    {
-		public submitForm():void {
-		//trigger this when next, previous or submit click
-		}
-		public getFormData:FormGroup<any> {
-		//your from group instance 
-			return this.myFrom
-		}
-	}
+import { StepperForm } from 'stepper'
+export class AppYourForm implements StepperForm    {
+    public submitForm():void {
+    //trigger this when next, previous or submit click
+    }
+    public getFormData:FormGroup<any> {
+    //your from group instance 
+        return this.myFrom
+    }
+}
 ```

@@ -1,7 +1,7 @@
 {
   "name": "ngvs-stepper",
   "version": "1.0.2",
-  "description": "This a stepper form libray publish by viral",
+  "description": "a library that offers next, previous, and submit capabilities as well as a step state indicator",
   "keywords": ["angular","stepper","progress"],
   "author": {
     "name": "viral patel",
