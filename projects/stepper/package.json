@@ -1,8 +1,8 @@
 {
-  "name": "ngvs-stepper",
-  "version": "1.0.2",
+  "name": "ngvx-stepper",
+  "version": "1.0.0",
   "description": "a library that offers next, previous, and submit capabilities as well as a step state indicator",
-  "keywords": ["angular","stepper","progress"],
+  "keywords": ["angular","stepper","progress","step"],
   "author": {
     "name": "viral patel",
     "email": "pviral4603@gmail.com"

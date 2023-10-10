@@ -1,3 +1,8 @@
+/**
+ * @author Viral Patel
+ * @description Data Type Models
+ */
+
 import { FormGroup } from "@angular/forms";
 
 export interface StepperForm {
@@ -10,9 +15,18 @@ export interface StepperForm {
      */
     getFormData(): FormGroup;
 }
+/**
+ * Shape of count widget 
+ */
 export type Shape = 'circle' | 'square'
+/**
+ *  Orientation of Progress count
+ */
 export type Orientation = 'vertical' | 'horizontal'
 
+/**
+ *  Css style for count widget 
+ */
 export interface CountWidgetStyles {
     colors: {
         [key: string]: string;

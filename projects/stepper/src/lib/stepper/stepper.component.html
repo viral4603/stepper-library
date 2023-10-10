@@ -1,4 +1,4 @@
-<div class="d-flex h-100 px-3"
+<div class="d-flex h-100 px-3 w-100"
     [ngClass]="[widgetStyle.orientation, widgetStyle.orientation === 'vertical' ? 'd-flex' : 'flex-column' ]">
     <!-- progress-bar-start -->
     <div class="step-counts py-3">
@@ -12,7 +12,7 @@
                         [ngClass]="[widgetStyle.shape === 'square' ? 'rounded' : 'rounded-circle']"
                         (click)="navigateToStep(i)" [disabled]="!isCurrentFormValid"><span>{{i+1}}</span></button>
                     <div class="step-details ps-2">
-                        <h6 class="mb-0 step-title ">{{step.countTitle}}</h6>
+                        <h6 class="mb-0 step-title" [title]="step.countTitle">{{step.countTitle}}</h6>
                     </div>
                 </li>
             </ng-container>
@@ -20,7 +20,7 @@
         <!-- step-widget-end -->
     </div>
     <!-- progress-bar-end -->
-    <div class="form-wrapper d-flex flex-column w-100 flex-grow-1" [ngClass]="[widgetStyle.orientation !== 'vertical' ? 'd-flex' : 'py-3 ps-5']">
+    <div class="form-wrapper d-flex flex-column w-100 flex-grow-1" [ngClass]="[widgetStyle.orientation !== 'vertical' ? 'd-flex' : 'py-3 ps-4']">
         <!-- start-form-content -->
         <ng-content></ng-content>
         <!-- end-form-content -->

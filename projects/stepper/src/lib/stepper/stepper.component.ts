@@ -1,3 +1,7 @@
+/**
+ * @author Viral Patel
+ * @description This compnent is for handling next, previous, submit and chnage state of step component.
+ */
 import { AfterContentInit, Component, ContentChildren, Input, QueryList, ViewEncapsulation } from '@angular/core';
 import { CountWidgetStyles } from '../model/model.stepper';
 import { StepComponent } from '../step/step.component';
@@ -10,7 +14,6 @@ import { StepComponent } from '../step/step.component';
 })
 export class StepperComponent implements AfterContentInit {
 
-  /** custom style for count widget */
   /** set count widget style */
   @Input() public set customStyle(styles: CountWidgetStyles) {
     if (styles) {
@@ -22,19 +25,18 @@ export class StepperComponent implements AfterContentInit {
     }
   }
 
-  /** get widget styles */
-
-
   /** get steps component */
   @ContentChildren(StepComponent) steps!: QueryList<StepComponent>;
 
-
   /** active step number */
   public currentStep: number;
+
   /** current active form instance */
   public currentForm!: StepComponent;
+
   /** root elemnet refernce for setting css varible */
   public rootElement: HTMLElement;
+
   /** custome style for widget */
   public widgetStyle!: CountWidgetStyles;
 
@@ -54,7 +56,7 @@ export class StepperComponent implements AfterContentInit {
   }
 
   /**
-   * navigate to the next form
+   * @description Navigate to the next form
    */
   public next() {
     if (this.currentStep < this.steps.length - 1) {
@@ -67,10 +69,9 @@ export class StepperComponent implements AfterContentInit {
   }
 
   /**
-   * navigate to the previous form
+   * @description Nacigate to the previous form
    */
   public prev() {
-
     if (this.currentStep > 0) {
       this.submitForm()
       this.toggleCurrentFormState()
@@ -80,12 +81,17 @@ export class StepperComponent implements AfterContentInit {
     }
   }
 
-  /** toggle active state of current form */
+
+  /**
+   * @description toggle current active form state
+   */
   public toggleCurrentFormState() {
     this.currentForm.isActive = !this.currentForm.isActive;
   }
+
   /**
-   * navigate to step while user click on progress count
+   * @description Navigate to the form directly
+   * @param stepIndex index number of form 
    */
   public navigateToStep(stepIndex: number) {
     this.submitForm()
@@ -94,7 +100,10 @@ export class StepperComponent implements AfterContentInit {
     this.currentForm = this.steps.toArray()[this.currentStep]
     this.toggleCurrentFormState()
   }
-  /** emit submit event of current form */
+
+  /**
+   * @description invoke submit of form component ref
+   */
   public submitForm() {
     if (this.isCurrentFormValid) {
       this.currentForm.childComponentRef.submitForm()
